@@ -1,0 +1,21 @@
+package TestWebPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+public class CheckLinks {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+System.setProperty("webdriver.gecko.driver", 
+"C:\\Users\\visha\\OneDrive\\Desktop\\Drivers\\geckodriver.exe");
+FirefoxDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("http://www.microsoft.com");
+java.util.List<WebElement>
+links = driver.findElements(By.tagName("a"));
+System.out.println("Total links are "+links.size());
+for (int i=0;i<links.size();i++)
+{
+System.out.println("Link" +i+ "Link name " +links.get(i).getText());
+}
+}
+}

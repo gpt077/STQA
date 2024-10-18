@@ -1,0 +1,20 @@
+package LoginPage;
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.firefox.FirefoxDriver; 
+public class WebPage {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+System.setProperty("webdriver.gecko.driver", "C:\\Users\\visha\\OneDrive\\Desktop\\Drivers\\geckodriver.exe"); 
+WebDriver driver=new FirefoxDriver(); 
+driver.get("https://github.com/login");
+driver.findElement(By.id("login_field")).sendKeys("vish@gmail.com"); 
+driver.findElement(By.id("password")).sendKeys("Computer"); 
+driver.findElement(By.name("commit")).click();
+String u=driver.getCurrentUrl();
+if(u.equals("https://github.com/login"))
+System.out.println("Test Pass");
+else
+System.out.println("Test Failed");
+}
+}

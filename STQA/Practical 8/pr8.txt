@@ -1,0 +1,27 @@
+package listcombo;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+public class ListBoxCombo {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+System.setProperty("webdriver.gecko.driver", 
+"C:\\Users\\visha\\OneDrive\\Desktop\\Drivers\\geckodriver.exe");
+FirefoxDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("https://www.facebook.com/r.php");
+Select oSelect = new
+Select(driver.findElement(By.xpath("//select[@id='month']")));
+List<WebElement> oSize = oSelect.getOptions();
+int listsize = oSize.size();
+System.out.println("Total no of elements in drop down box is "
++listsize);
+for(int i=0;i<listsize;i++)
+{
+String s = oSelect.getOptions().get(i).getText();
+System.out.println(s);
+}
+}
+}

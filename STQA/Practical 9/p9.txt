@@ -1,0 +1,28 @@
+package checkbox;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+public class CountCheckbox {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+System.setProperty("webdriver.gecko.driver","C:\\Users\\visha\\OneDrive\\Desktop\\Drivers\\geckodriver.exe");
+FirefoxDriver driver=new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("https://mdbootstrap.com/docs/standard/forms/checkbox/");
+List<WebElement> 
+elements=driver.findElements(By.xpath("//Input[@type='checkbox']"));
+
+int checkedCount=0;
+int uncheckedCount=0;
+for(int i=0;i<elements.size();i++)
+{
+if(elements.get(i).isSelected()==true)
+checkedCount++;
+else
+uncheckedCount++;
+}
+System.out.println("Number of checked checkboxes are "+checkedCount);
+System.out.println("Number of unchecked checkboxes are "+uncheckedCount);
+}
+}
